@@ -1,0 +1,1032 @@
+<title>20 Jahre König</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap">
+
+<style>
+:root{
+  --ground:#1B0A0F;
+  --velvet:#28101A;
+  --line:#4A2130;
+  --crimson:#8C2438;
+  --brass:#C39B3E;
+  --brass-hi:#F2DA96;
+  --ivory:#F3EADF;
+  --ivory-dim:#BFA79B;
+  --measure:62ch;
+
+  --f-display:"Bodoni Moda","Didot","Times New Roman",serif;
+  --f-serif:"Cormorant Garamond","EB Garamond",Georgia,serif;
+  --f-ui:"Jost","Futura","Century Gothic",system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(120% 70% at 50% -10%, #3A1120 0%, rgba(58,17,32,0) 60%),
+    var(--ground);
+  color:var(--ivory);
+  font-family:var(--f-ui);
+  font-size:16px;
+  font-weight:300;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* --- Urkundenrahmen ------------------------------------------------ */
+.plate-frame{
+  position:fixed;
+  inset:12px;
+  border:1px solid rgba(195,155,62,.34);
+  pointer-events:none;
+  z-index:60;
+}
+.plate-frame::before{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border:1px solid rgba(195,155,62,.16);
+}
+@media (max-width:640px){ .plate-frame{inset:7px} }
+
+#confetti{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:50;
+}
+
+.wrap{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 clamp(24px,5vw,56px);
+}
+
+/* --- Typografische Grundlagen -------------------------------------- */
+.eyebrow{
+  font-family:var(--f-ui);
+  font-size:.72rem;
+  font-weight:400;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin:0;
+}
+
+h2{
+  font-family:var(--f-display);
+  font-optical-sizing:auto;
+  font-weight:400;
+  font-size:clamp(1.7rem,4vw,2.6rem);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  text-wrap:balance;
+  margin:.5rem 0 0;
+  color:var(--ivory);
+}
+
+.lede{
+  font-family:var(--f-serif);
+  font-size:clamp(1.05rem,2vw,1.2rem);
+  line-height:1.7;
+  color:var(--ivory-dim);
+  max-width:var(--measure);
+  margin:1rem 0 0;
+}
+
+/* --- Zierteiler ---------------------------------------------------- */
+.fleuron{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:var(--brass);
+  opacity:.7;
+}
+.fleuron span{
+  display:block;
+  height:1px;
+  width:min(160px,22vw);
+  background:linear-gradient(90deg,transparent,currentColor);
+}
+.fleuron span:last-child{background:linear-gradient(90deg,currentColor,transparent)}
+.fleuron svg{width:22px;height:22px;flex:none;fill:currentColor}
+
+/* --- Hero ---------------------------------------------------------- */
+.hero{
+  text-align:center;
+  padding:clamp(56px,9vw,104px) 0 clamp(40px,6vw,64px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:clamp(20px,3vw,30px);
+}
+
+.crown{
+  width:clamp(96px,15vw,148px);
+  height:auto;
+  filter:drop-shadow(0 0 26px rgba(195,155,62,.32));
+  animation:gleam 7s ease-in-out infinite;
+}
+@keyframes gleam{
+  0%,100%{filter:drop-shadow(0 0 20px rgba(195,155,62,.24))}
+  50%{filter:drop-shadow(0 0 34px rgba(242,218,150,.48))}
+}
+.crown.crowned{animation:crownSet .9s cubic-bezier(.2,1.5,.4,1)}
+@keyframes crownSet{
+  0%{transform:translateY(-38px) scale(.86);opacity:.4}
+  60%{transform:translateY(4px) scale(1.04)}
+  100%{transform:none}
+}
+
+.title-block{display:flex;flex-direction:column;align-items:center;gap:14px}
+
+h1{
+  margin:0;
+  font-family:var(--f-display);
+  font-optical-sizing:auto;
+  font-weight:400;
+  line-height:.92;
+  text-transform:uppercase;
+}
+h1 .years{
+  display:block;
+  font-size:clamp(1.5rem,5.2vw,2.9rem);
+  letter-spacing:.42em;
+  text-indent:.42em;
+  font-weight:500;
+  color:var(--ivory);
+}
+h1 .king{
+  display:block;
+  font-size:clamp(3.2rem,17vw,10.5rem);
+  letter-spacing:.02em;
+  font-weight:700;
+  /* Zeilenhoehe und Innenabstand halten die Umlautpunkte des OE
+     innerhalb der Farbflaeche, sonst schneidet background-clip sie weg */
+  line-height:1.1;
+  padding-top:.18em;
+  margin-top:0;
+  background:linear-gradient(178deg,var(--brass-hi) 6%,var(--brass) 44%,#8A6620 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-name{
+  font-family:var(--f-ui);
+  font-size:.74rem;
+  letter-spacing:.36em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin:0;
+}
+
+.hero-sub{
+  font-family:var(--f-serif);
+  font-style:italic;
+  font-size:clamp(1.05rem,2.3vw,1.35rem);
+  color:var(--ivory-dim);
+  max-width:46ch;
+  margin:0;
+  text-wrap:balance;
+}
+
+/* --- Countdown ----------------------------------------------------- */
+.countdown{
+  display:flex;
+  gap:clamp(14px,4vw,40px);
+  justify-content:center;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.cd-unit{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  min-width:54px;
+}
+.cd-num{
+  font-family:var(--f-display);
+  font-size:clamp(2.1rem,6.5vw,3.4rem);
+  font-weight:500;
+  line-height:1;
+  color:var(--brass-hi);
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+.cd-label{
+  font-size:.62rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--ivory-dim);
+}
+.cd-note{
+  font-size:.7rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin:0;
+}
+.cd-note.today{
+  color:var(--brass-hi);
+  font-size:.78rem;
+  padding:9px 20px;
+  border:1px solid rgba(195,155,62,.5);
+  border-radius:999px;
+}
+
+/* --- Knopf --------------------------------------------------------- */
+.btn{
+  font-family:var(--f-ui);
+  font-size:.78rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ground);
+  background:linear-gradient(176deg,var(--brass-hi),var(--brass));
+  border:none;
+  border-radius:999px;
+  padding:15px 34px;
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow:0 6px 24px rgba(195,155,62,.22);
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(195,155,62,.34)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:2px solid var(--brass-hi);outline-offset:4px}
+
+.btn-ghost{
+  background:transparent;
+  color:var(--brass);
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+.btn-ghost:hover{border-color:var(--brass);box-shadow:none;color:var(--brass-hi)}
+
+.crown-status{
+  font-family:var(--f-serif);
+  font-style:italic;
+  color:var(--brass-hi);
+  min-height:1.4em;
+  margin:0;
+  font-size:1.05rem;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+.crown-status.show{opacity:1}
+
+/* --- Abschnitte ---------------------------------------------------- */
+section{padding:clamp(52px,8vw,86px) 0}
+.section-head{margin-bottom:clamp(28px,4vw,44px)}
+.section-head.centered{text-align:center;display:flex;flex-direction:column;align-items:center}
+.section-head.centered .lede{margin-left:auto;margin-right:auto}
+
+/* --- Proklamation -------------------------------------------------- */
+.decree{
+  position:relative;
+  background:linear-gradient(180deg,rgba(58,23,36,.72),rgba(24,10,15,.72));
+  border:1px solid var(--line);
+  padding:clamp(30px,5vw,60px) clamp(24px,5vw,64px) clamp(64px,7vw,72px);
+  text-align:center;
+}
+.decree::before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px solid rgba(195,155,62,.2);
+  pointer-events:none;
+}
+.decree-title{
+  font-family:var(--f-display);
+  font-size:clamp(1.5rem,4.4vw,2.3rem);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--brass-hi);
+  margin:0 0 4px;
+  font-weight:400;
+}
+.decree-body{
+  font-family:var(--f-serif);
+  font-size:clamp(1.1rem,2.1vw,1.32rem);
+  line-height:1.8;
+  color:var(--ivory);
+  max-width:56ch;
+  margin:22px auto 0;
+}
+.decree-body em{color:var(--brass-hi);font-style:italic}
+.decree-sign{
+  font-family:var(--f-ui);
+  font-size:.68rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--ivory-dim);
+  margin:28px 0 0;
+  line-height:2.2;
+}
+.seal{
+  position:absolute;
+  bottom:-34px;
+  left:50%;
+  transform:translateX(-50%);
+  width:88px;
+  height:88px;
+}
+
+/* --- Zahlen -------------------------------------------------------- */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.stat{
+  background:var(--ground);
+  padding:clamp(24px,3.4vw,36px) clamp(18px,2.6vw,28px);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.stat-num{
+  font-family:var(--f-display);
+  font-size:clamp(2rem,4.6vw,2.9rem);
+  font-weight:500;
+  line-height:1;
+  color:var(--brass);
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+.stat-num .unit{font-size:.44em;letter-spacing:.06em;margin-left:.28em;color:var(--ivory-dim)}
+.stat-label{
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ivory);
+}
+.stat-foot{
+  font-family:var(--f-serif);
+  font-size:.95rem;
+  font-style:italic;
+  color:var(--ivory-dim);
+  line-height:1.5;
+}
+@media (max-width:700px){ .stats{grid-template-columns:1fr} }
+
+/* --- Chronik ------------------------------------------------------- */
+.chronicle{
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--line);
+}
+.entry{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:clamp(18px,4vw,44px);
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+  align-items:baseline;
+}
+.entry-year{display:flex;flex-direction:column;gap:2px}
+.entry-num{
+  font-family:var(--f-display);
+  font-size:1.6rem;
+  letter-spacing:.04em;
+  color:var(--brass);
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.entry-age{
+  font-size:.66rem;
+  letter-spacing:.26em;
+  color:var(--ivory-dim);
+  text-transform:uppercase;
+}
+.entry-title{
+  font-family:var(--f-display);
+  font-size:clamp(1.15rem,2.4vw,1.5rem);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  margin:0 0 6px;
+  font-weight:400;
+  color:var(--ivory);
+}
+.entry-text{
+  font-family:var(--f-serif);
+  font-size:1.1rem;
+  color:var(--ivory-dim);
+  margin:0;
+  max-width:var(--measure);
+}
+.entry.now .entry-title{color:var(--brass-hi)}
+.entry.now .entry-num{color:var(--brass-hi)}
+@media (max-width:620px){
+  .entry{grid-template-columns:1fr;gap:10px}
+  .entry-year{flex-direction:row;align-items:baseline;gap:12px}
+}
+
+/* --- Titel / Plaketten --------------------------------------------- */
+.titles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(14px,2vw,20px);
+}
+@media (max-width:760px){ .titles{grid-template-columns:1fr} }
+.plaque{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(58,23,36,.42),rgba(24,10,15,.42));
+  padding:26px 24px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:border-color .22s ease, transform .22s ease;
+}
+.plaque:hover{border-color:rgba(195,155,62,.55);transform:translateY(-3px)}
+.plaque-mark{width:20px;height:20px;fill:var(--brass);opacity:.85}
+.plaque h3{
+  font-family:var(--f-display);
+  font-size:1.13rem;
+  font-weight:500;
+  letter-spacing:.04em;
+  margin:0;
+  color:var(--ivory);
+  text-wrap:balance;
+}
+.plaque p{
+  font-family:var(--f-serif);
+  font-size:1.02rem;
+  color:var(--ivory-dim);
+  margin:0;
+  line-height:1.55;
+}
+
+/* --- Orakel -------------------------------------------------------- */
+.oracle{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:26px;
+}
+.oracle-quote{
+  font-family:var(--f-serif);
+  font-style:italic;
+  font-size:clamp(1.35rem,3.4vw,2rem);
+  line-height:1.45;
+  color:var(--ivory);
+  max-width:24ch;
+  margin:0;
+  text-wrap:balance;
+  min-height:2.9em;
+  transition:opacity .28s ease;
+}
+.oracle-quote::before{content:"\201E"}
+.oracle-quote::after{content:"\201C"}
+.oracle-quote.fading{opacity:0}
+
+/* --- Widmung ------------------------------------------------------- */
+.toast{
+  text-align:center;
+  padding:clamp(56px,8vw,96px) 0 clamp(64px,9vw,104px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:22px;
+}
+.toast-line{
+  font-family:var(--f-display);
+  font-size:clamp(1.6rem,5vw,2.7rem);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--brass-hi);
+  margin:0;
+  text-wrap:balance;
+}
+.toast-text{
+  font-family:var(--f-serif);
+  font-size:clamp(1.1rem,2.2vw,1.28rem);
+  color:var(--ivory-dim);
+  max-width:44ch;
+  margin:0;
+}
+.colophon{
+  font-size:.66rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--line);
+  margin:12px 0 0;
+}
+.colophon b{color:var(--ivory-dim);font-weight:400}
+
+/* --- Handy ---------------------------------------------------------- */
+@media (max-width:560px){
+  .countdown{gap:7px;width:100%}
+  .cd-unit{min-width:0;flex:1 1 0}
+  .cd-num{font-size:1.7rem}
+  .cd-label{font-size:.5rem;letter-spacing:.08em}
+  .hero-name{font-size:.66rem;letter-spacing:.2em}
+  .cd-note{font-size:.62rem;letter-spacing:.18em}
+  h1 .years{letter-spacing:.3em;text-indent:.3em}
+  .decree{padding-bottom:58px}
+  .seal{width:74px;height:74px;bottom:-28px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+
+<div class="plate-frame" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7E5B0"/>
+      <stop offset="42%" stop-color="#C39B3E"/>
+      <stop offset="100%" stop-color="#7F5C1B"/>
+    </linearGradient>
+    <symbol id="fleur" viewBox="0 0 24 24">
+      <path d="M12 1 14.2 8.4 21.6 10.6 14.2 12.8 12 20.2 9.8 12.8 2.4 10.6 9.8 8.4Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main>
+
+  <!-- ========== HERO ========== -->
+  <header class="wrap hero">
+    <p class="eyebrow">Proklamation &middot; 6. September 2026</p>
+
+    <svg class="crown" id="crown" viewBox="0 0 120 96" role="img" aria-label="Krone">
+      <path d="M9 72 L14.5 27 L36.5 47 L60 11 L83.5 47 L105.5 27 L111 72 Z" fill="url(#goldGrad)"/>
+      <rect x="7" y="74" width="106" height="14" rx="3" fill="url(#goldGrad)"/>
+      <circle cx="14.5" cy="23" r="5" fill="#F7E5B0"/>
+      <circle cx="60" cy="7" r="6" fill="#F7E5B0"/>
+      <circle cx="105.5" cy="23" r="5" fill="#F7E5B0"/>
+      <circle cx="36" cy="81" r="3.4" fill="#8C2438"/>
+      <circle cx="60" cy="81" r="4" fill="#8C2438"/>
+      <circle cx="84" cy="81" r="3.4" fill="#8C2438"/>
+    </svg>
+
+    <div class="title-block">
+      <h1><span class="years">20 Jahre</span><span class="king">König</span></h1>
+      <p class="hero-name">Arne der Erste &middot; im Amt seit 2006</p>
+    </div>
+
+    <p class="hero-sub">Zwanzig Jahre auf dem Thron, kein einziger Aufstand. Muss man erstmal hinkriegen, kein Cap.</p>
+
+    <div class="countdown" id="countdown" aria-live="off">
+      <div class="cd-unit"><span class="cd-num" id="cd-y">20</span><span class="cd-label">Jahre</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-d">0</span><span class="cd-label">Tage</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Stunden</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-m">00</span><span class="cd-label">Minuten</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-s">00</span><span class="cd-label">Sekunden</span></div>
+    </div>
+    <p class="cd-note" id="cd-note">ununterbrochen im Amt seit dem 6. September 2006</p>
+
+    <button class="btn" id="crownBtn" type="button">Krone aufsetzen</button>
+    <p class="crown-status" id="crownStatus" aria-live="polite"></p>
+  </header>
+
+  <div class="wrap fleuron" aria-hidden="true"><span></span><svg><use href="#fleur"/></svg><span></span></div>
+
+  <!-- ========== PROKLAMATION ========== -->
+  <section class="wrap" id="proklamation">
+    <div class="decree">
+      <p class="eyebrow">Urkunde Nr. 20</p>
+      <h2 class="decree-title">Kund und zu wissen</h2>
+      <p class="decree-body">
+        Kund und zu wissen sei hiermit jedermann, dass <em>Arne</em> am heutigen Tage
+        sein zwanzigstes Lebensjahr vollendet &mdash; zwei volle Jahrzehnte am St&uuml;ck
+        regiert, ohne ein einziges Mal die <em>Aura</em> zu verlieren.
+        <br><br>
+        Ihm geb&uuml;hren fortan: der beste Platz auf dem Sofa, das letzte St&uuml;ck Pizza,
+        die alleinige Hoheit &uuml;ber die Box, das ewige Vorrecht auf die
+        <em>letzte Runde</em> und das Recht, ohne Angabe von Gr&uuml;nden
+        <em>&bdquo;nh, kein Bock&ldquo;</em> zu sagen.
+        <br><br>
+        Das Reich sagt danke. Das Reich will Bier. Sofort.
+      </p>
+      <p class="decree-sign">
+        Gegeben am 6. September 2026<br>
+        gezeichnet: das Volk
+      </p>
+      <svg class="seal" viewBox="0 0 100 100" role="img" aria-label="K&ouml;nigliches Siegel">
+        <circle cx="50" cy="50" r="46" fill="#8C2438"/>
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#C39B3E" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="37" fill="none" stroke="#C39B3E" stroke-width="1" opacity=".7"/>
+        <text x="50" y="46" text-anchor="middle" fill="#F2DA96" font-family="Bodoni Moda, serif" font-size="26" font-weight="700">20</text>
+        <text x="50" y="64" text-anchor="middle" fill="#F2DA96" font-family="Jost, sans-serif" font-size="8" letter-spacing="1.4">ARNE</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ========== ZAHLEN ========== -->
+  <section class="wrap" id="zahlen">
+    <div class="section-head">
+      <p class="eyebrow">Kapitel 1</p>
+      <h2>Die Regentschaft in Zahlen</h2>
+      <p class="lede">Zwanzig Jahre klingen kurz. Die Buchhaltung des K&ouml;nigreichs sieht das anders &mdash; und die der Hofsch&auml;nke erst recht.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num" data-value="7305">7.305</span>
+        <span class="stat-label">Tage im Amt</span>
+        <span class="stat-foot">Nicht ein Tag Krankmeldung von der Krone. Absolut goated.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="2190">2.190</span>
+        <span class="stat-label">Bier erlegt</span>
+        <span class="stat-foot">Hochgerechnet ab dem sechzehnten Geburtstag. Sehr konservativ gesch&auml;tzt.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="91">91</span>
+        <span class="stat-label">N&auml;chte durchgemacht</span>
+        <span class="stat-foot">Gez&auml;hlt ab dem ersten &bdquo;ich geh heute fr&uuml;h heim&ldquo;. Keine davon endete fr&uuml;h.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="789">789<span class="unit">Mio.</span></span>
+        <span class="stat-label">Herzschl&auml;ge</span>
+        <span class="stat-foot">Bei 75 pro Minute. Das Organ ist echt ein Sportler.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="328">328</span>
+        <span class="stat-label">Flaschen ohne &Ouml;ffner</span>
+        <span class="stat-foot">Feuerzeug, Tischkante, T&uuml;rrahmen. Der Zahn war ein einmaliger Fehler.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="2435">2.435</span>
+        <span class="stat-label">Tage verschlafen</span>
+        <span class="stat-foot">Bei acht Stunden pro Nacht. Einige davon erst ab mittags, no front.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="247">247</span>
+        <span class="stat-label">Vollmonde erlebt</span>
+        <span class="stat-foot">Einer alle 29,5 Tage. Bei mindestens der H&auml;lfte war er noch wach.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="0">0</span>
+        <span class="stat-label">Runden ausgelassen</span>
+        <span class="stat-foot">In zwanzig Jahren. Aktenkundig und mehrfach bezeugt.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-value="18.8" data-decimals="1">18,8<span class="unit">Mrd. km</span></span>
+        <span class="stat-label">Reiseweg um die Sonne</span>
+        <span class="stat-foot">Zwanzig Runden, den Gro&szlig;teil davon sitzend. Oft an der Theke.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CHRONIK ========== -->
+  <section class="wrap" id="chronik">
+    <div class="section-head">
+      <p class="eyebrow">Kapitel 2</p>
+      <h2>Chronik der Herrschaft</h2>
+      <p class="lede">Die entscheidenden Wendepunkte einer bemerkenswerten Regentschaft, in gebotener K&uuml;rze.</p>
+    </div>
+
+    <div class="chronicle">
+      <article class="entry">
+        <div class="entry-year"><span class="entry-num">2006</span><span class="entry-age">Jahr 0</span></div>
+        <div>
+          <h3 class="entry-title">Die Thronbesteigung</h3>
+          <p class="entry-text">Ein Schrei, ein Blitzlicht, ein Reich. Aura ab Sekunde eins, die ersten Untertanen sofort schlaflos.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-year"><span class="entry-num">2012</span><span class="entry-age">Jahr 6</span></div>
+        <div>
+          <h3 class="entry-title">Der erste Feldzug</h3>
+          <p class="entry-text">Einschulung. Die Schult&uuml;te gr&ouml;&szlig;er als der Regent, das Selbstbewusstsein gr&ouml;&szlig;er als beide zusammen.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-year"><span class="entry-num">2018</span><span class="entry-age">Jahr 12</span></div>
+        <div>
+          <h3 class="entry-title">Die Cringe-&Auml;ra</h3>
+          <p class="entry-text">Frisuren wurden gewagt, Meinungen lautstark vertreten. &Uuml;ber die Fotos deckt die Chronik den Mantel des Schweigens.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-year"><span class="entry-num">2022</span><span class="entry-age">Jahr 16</span></div>
+        <div>
+          <h3 class="entry-title">Die erste legale Halbe</h3>
+          <p class="entry-text">Das Gesetz erlaubt ab sechzehn ein Bier. Das Reich nimmt diese Einladung vollumf&auml;nglich an und dankt dem Gesetzgeber bis heute.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-year"><span class="entry-num">2024</span><span class="entry-age">Jahr 18</span></div>
+        <div>
+          <h3 class="entry-title">Volljährig, aber lost</h3>
+          <p class="entry-text">Fahrerlaubnis, Stimmrecht und Zutritt zu jedem Club der Stadt. Zwei davon wurden ab sofort intensiv genutzt.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-year"><span class="entry-num">2025</span><span class="entry-age">Jahr 19</span></div>
+        <div>
+          <h3 class="entry-title">Der Rekordsommer</h3>
+          <p class="entry-text">Kein Wochenende ausgelassen, keine Runde verpasst. Die Tanke um die Ecke pr&uuml;ft seitdem eine Gedenktafel.</p>
+        </div>
+      </article>
+      <article class="entry now">
+        <div class="entry-year"><span class="entry-num">2026</span><span class="entry-age">Jahr 20</span></div>
+        <div>
+          <h3 class="entry-title">Das Jubil&auml;um</h3>
+          <p class="entry-text">Zwanzig Jahre auf dem Thron, kein bisschen amtsm&uuml;de. Die Kr&ouml;nungsfeier ist angesetzt, das K&uuml;hlfach vorbereitet, das Reich bereit.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== TITEL ========== -->
+  <section class="wrap" id="titel">
+    <div class="section-head">
+      <p class="eyebrow">Kapitel 3</p>
+      <h2>Verliehene Ehrentitel</h2>
+      <p class="lede">Verdienste, die in keinem Zeugnis stehen und trotzdem jeder im Umkreis kennt.</p>
+    </div>
+
+    <div class="titles">
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>Gro&szlig;meister der letzten Runde</h3>
+        <p>Bestellt sie in dem Moment, in dem alle schon die Jacke anhaben. Und behält am Ende des Abends recht.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>H&uuml;ter des kalten Kastens</h3>
+        <p>Wei&szlig; zu jeder Tages- und Nachtzeit auf die Flasche genau, was noch da ist. Und ob es reicht.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>Der Letzte am Tresen</h3>
+        <p>Geht erst, wenn das Licht angeht und die Stühle oben stehen. Manchmal auch dann noch nicht.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>Schirmherr der spontanen Nacht</h3>
+        <p>Schreibt um 22 Uhr &bdquo;bock was zu machen?&ldquo; &mdash; und um 23 Uhr steht die halbe Stadt vor der T&uuml;r.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>Erzherzog des Katers</h3>
+        <p>Steht am n&auml;chsten Morgen trotzdem auf. Nicht p&uuml;nktlich, aber mit W&uuml;rde.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>Bewahrer der letzten Pizza</h3>
+        <p>Verteidigt das kalte Reststück um vier Uhr morgens mit einer Energie, die man sonst nur vor Gericht sieht.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>Sigma des Gruppenchats</h3>
+        <p>Antwortet drei Tage nicht und dann mit einem einzigen &bdquo;ja&ldquo;. Trotzdem sind alle froh.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>Erster Ritter der Ausrede</h3>
+        <p>Erkl&auml;rt am Sonntag, warum es Samstag so lang wurde. Die Story wiegt den Zustand mehr als auf.</p>
+      </div>
+      <div class="plaque">
+        <svg class="plaque-mark" aria-hidden="true"><use href="#fleur"/></svg>
+        <h3>H&uuml;ter des heiligen Ladekabels</h3>
+        <p>Wacht &uuml;ber die letzte funktionierende Stromquelle der Wohnung. Wer nachts danach fragt, kassiert ein L.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap fleuron" aria-hidden="true"><span></span><svg><use href="#fleur"/></svg><span></span></div>
+
+  <!-- ========== ORAKEL ========== -->
+  <section class="wrap" id="orakel">
+    <div class="section-head centered">
+      <p class="eyebrow">Kapitel 4</p>
+      <h2>Das Hoforakel</h2>
+      <p class="lede">Weisheiten aus zwanzig Jahren Regierungserfahrung. Ohne Gew&auml;hr, mit voller &Uuml;berzeugung.</p>
+    </div>
+
+    <div class="oracle">
+      <p class="oracle-quote" id="oracleQuote">Ein Thron ist nur ein Stuhl mit besserem Marketing.</p>
+      <button class="btn btn-ghost" id="oracleBtn" type="button">N&auml;chste Weisheit</button>
+    </div>
+  </section>
+
+  <!-- ========== WIDMUNG ========== -->
+  <footer class="wrap toast">
+    <svg class="crown" style="width:64px" viewBox="0 0 120 96" aria-hidden="true">
+      <path d="M9 72 L14.5 27 L36.5 47 L60 11 L83.5 47 L105.5 27 L111 72 Z" fill="url(#goldGrad)"/>
+      <rect x="7" y="74" width="106" height="14" rx="3" fill="url(#goldGrad)"/>
+    </svg>
+    <p class="toast-line">Auf die n&auml;chsten zwanzig</p>
+    <p class="toast-text">Alles Gute, Arne. Bleib genau so, wie du bist &mdash; nur ein Jahr l&auml;nger im Amt.</p>
+    <p class="colophon">Lang lebe K&ouml;nig <b>Arne</b></p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Regierungszeit, live ---------- */
+  var BIRTH_YEAR = 2006, BIRTH_MONTH = 8, BIRTH_DAY = 6; // 6. September 2006
+
+  var elY = document.getElementById("cd-y"),
+      elD = document.getElementById("cd-d"),
+      elH = document.getElementById("cd-h"),
+      elM = document.getElementById("cd-m"),
+      elS = document.getElementById("cd-s"),
+      note = document.getElementById("cd-note");
+
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+  function isBirthday(now) {
+    return now.getMonth() === BIRTH_MONTH && now.getDate() === BIRTH_DAY;
+  }
+
+  function tick() {
+    var now = new Date();
+    // letzter Jahrestag der Thronbesteigung
+    var anniv = new Date(now.getFullYear(), BIRTH_MONTH, BIRTH_DAY, 0, 0, 0);
+    if (anniv > now) { anniv = new Date(now.getFullYear() - 1, BIRTH_MONTH, BIRTH_DAY, 0, 0, 0); }
+
+    var s = Math.floor((now - anniv) / 1000);
+    elY.textContent = anniv.getFullYear() - BIRTH_YEAR;
+    elD.textContent = Math.floor(s / 86400);
+    elH.textContent = pad(Math.floor(s / 3600) % 24);
+    elM.textContent = pad(Math.floor(s / 60) % 60);
+    elS.textContent = pad(s % 60);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  if (isBirthday(new Date())) {
+    note.textContent = "Heute ist Krönungstag";
+    note.classList.add("today");
+  }
+
+  /* ---------- Zahlen hochzaehlen ---------- */
+  function formatDE(value, decimals) {
+    return value.toLocaleString("de-DE", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals
+    });
+  }
+
+  if (!reduce && "IntersectionObserver" in window) {
+    document.querySelectorAll(".stat-num[data-value]").forEach(function (el) {
+      var end = parseFloat(el.dataset.value);
+      var dec = parseInt(el.dataset.decimals || "0", 10);
+      var unit = el.querySelector(".unit");
+      var unitHTML = unit ? unit.outerHTML : "";
+      var started = false;
+
+      function run() {
+        if (started) return;
+        started = true;
+        var t0 = performance.now(), dur = 1100;
+        requestAnimationFrame(function frame(now) {
+          var p = Math.min((now - t0) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.innerHTML = formatDE(end * eased, dec) + unitHTML;
+          if (p < 1) requestAnimationFrame(frame);
+        });
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { run(); io.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(el);
+    });
+  }
+
+  /* ---------- Hoforakel ---------- */
+  var wisdoms = [
+    "Ein Thron ist nur ein Stuhl mit besserem Marketing.",
+    "Aura verliert man nicht durch Fehler, sondern durchs Erklären.",
+    "Wer niemandem was beweisen muss, hat den Thron safe.",
+    "Die Krone drückt nur, wenn der Kopf zu voll ist.",
+    "Delulu ist der erste Schritt zur Solulu. Frag jeden Gründer.",
+    "Ein guter Herrscher kennt seine Grenzen. Ein großer verschiebt sie aufs Wochenende.",
+    "Man regiert nicht mit der Faust, sondern mit dem letzten Stück Pizza.",
+    "Kein Cap: Der Wecker gewinnt nur, wenn du ihn gewinnen lässt.",
+    "Jedes Königreich fing damit an, dass einer einfach mal aufgestanden ist.",
+    "Ein König, der seine Krone verliert, hat sie meistens nur verlegt.",
+    "Sei das W, auf das du wartest.",
+    "Niemand ist so lost, dass er nicht König von irgendwas sein könnte."
+  ];
+  var qEl = document.getElementById("oracleQuote");
+  var last = 0;
+
+  document.getElementById("oracleBtn").addEventListener("click", function () {
+    var i = last;
+    while (i === last) { i = Math.floor(Math.random() * wisdoms.length); }
+    last = i;
+    if (reduce) { qEl.textContent = wisdoms[i]; return; }
+    qEl.classList.add("fading");
+    setTimeout(function () {
+      qEl.textContent = wisdoms[i];
+      qEl.classList.remove("fading");
+    }, 280);
+  });
+
+  /* ---------- Konfetti in Gold und Purpur ---------- */
+  var canvas = document.getElementById("confetti");
+  var ctx = canvas.getContext("2d");
+  var pieces = [];
+  var running = false;
+  var colors = ["#F2DA96", "#C39B3E", "#8C2438", "#F3EADF", "#7F5C1B"];
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  function burst() {
+    var w = window.innerWidth;
+    for (var i = 0; i < 150; i++) {
+      pieces.push({
+        x: w / 2 + (Math.random() - 0.5) * w * 0.6,
+        y: -20 - Math.random() * window.innerHeight * 0.5,
+        vx: (Math.random() - 0.5) * 2.4,
+        vy: 2 + Math.random() * 3.4,
+        w: 4 + Math.random() * 7,
+        h: 6 + Math.random() * 10,
+        rot: Math.random() * Math.PI,
+        vr: (Math.random() - 0.5) * 0.22,
+        color: colors[Math.floor(Math.random() * colors.length)]
+      });
+    }
+    if (!running) { running = true; requestAnimationFrame(draw); }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (var i = pieces.length - 1; i >= 0; i--) {
+      var p = pieces[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.035;
+      p.rot += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+      if (p.y > window.innerHeight + 40) { pieces.splice(i, 1); }
+    }
+    if (pieces.length) { requestAnimationFrame(draw); }
+    else { running = false; ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); }
+  }
+
+  /* ---------- Krone aufsetzen ---------- */
+  var btn = document.getElementById("crownBtn");
+  var crown = document.getElementById("crown");
+  var statusEl = document.getElementById("crownStatus");
+  var lines = [
+    "Krone sitzt. Aura +1000.",
+    "Das Volk sagt: absolut goated.",
+    "Hoheit, chill mal kurz.",
+    "Der Hofstaat ist beim Konfetti komplett cooked.",
+    "Okay, das ist jetzt einfach nur noch Flexen."
+  ];
+  var count = 0;
+
+  btn.addEventListener("click", function () {
+    if (!reduce) {
+      burst();
+      crown.classList.remove("crowned");
+      void crown.offsetWidth;
+      crown.classList.add("crowned");
+    }
+    statusEl.textContent = lines[Math.min(count, lines.length - 1)];
+    statusEl.classList.add("show");
+    count++;
+    if (count === 1) { btn.textContent = "Nochmal krönen"; }
+  });
+
+  /* ---------- Am Krönungstag begrüßt das Reich von allein ---------- */
+  if (isBirthday(new Date()) && !reduce) {
+    setTimeout(function () {
+      burst();
+      statusEl.textContent = "Alles Gute, Hoheit.";
+      statusEl.classList.add("show");
+    }, 600);
+  }
+})();
+</script>
